@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *worldView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UITextField *locationTitleField;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *mapType;
 
 @end
 
@@ -31,6 +32,8 @@
     [self.locationManager startUpdatingHeading];
     
     self.worldView.showsUserLocation = YES;
+//    self.worldView.mapType = MKMapTypeSatellite;
+    [self.mapType addTarget:self action:@selector(changeMapType) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -89,6 +92,28 @@
     [self.activityIndicator stopAnimating];
     self.locationTitleField.hidden = NO;
     [self.locationManager stopUpdatingLocation];
+}
+
+- (void) changeMapType
+{
+    switch (self.mapType.selectedSegmentIndex)
+    {
+        case 0:
+            self.worldView.mapType = MKMapTypeStandard;
+            break;
+            
+        case 1:
+            self.worldView.mapType = MKMapTypeSatellite;
+            break;
+            
+        case 2:
+            self.worldView.mapType = MKMapTypeHybrid;
+            break;
+            
+        default:
+            self.worldView.mapType = MKMapTypeStandard;
+            break;
+    }
 }
 
 @end

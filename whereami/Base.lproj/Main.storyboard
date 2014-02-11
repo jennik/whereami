@@ -36,12 +36,22 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="dk7-Pe-ZRc"/>
                                 </connections>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dyX-T8-cws">
+                                <rect key="frame" x="20" y="432" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standart"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="YLG-97-Lpq" id="6vQ-5g-J6U"/>
                         <outlet property="locationTitleField" destination="ag2-0G-zuf" id="pwv-CD-Ud6"/>
+                        <outlet property="mapType" destination="dyX-T8-cws" id="k0r-bl-Wcf"/>
                         <outlet property="worldView" destination="FEM-m4-M8g" id="cmT-Ca-UAW"/>
                     </connections>
                 </viewController>
